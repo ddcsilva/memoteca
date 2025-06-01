@@ -154,3 +154,21 @@ input[type="radio"]:checked + .custom-radio span {
 .campo-valido {
   border: 2px solid #27ae60 !important;
 }
+
+.contador-caracteres {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: right;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.contador-caracteres.proximo-limite {
+  color: #f39c12;
+  font-weight: bold;
+}
+
+.contador-caracteres.no-limite {
+  color: #e74c3c;
+  font-weight: bold;
+}

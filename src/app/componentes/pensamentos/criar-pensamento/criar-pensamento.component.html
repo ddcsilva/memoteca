@@ -5,6 +5,7 @@
   <form>
     <div class="campo-grupo">
       <label for="pensamento">Pensamento</label>
+
       <input
         type="textarea"
         class="input"
@@ -16,10 +17,33 @@
         [(ngModel)]="pensamento.conteudo"
         #conteudo="ngModel"
         required
+        minlength="10"
+        maxlength="500"
       />
+
+      <!-- Contador de caracteres -->
+      <div
+        class="contador-caracteres"
+        [class.proximo-limite]="pensamento.conteudo.length > 400"
+        [class.no-limite]="pensamento.conteudo.length >= 500"
+      >
+        {{ pensamento.conteudo.length }}/500 caracteres
+      </div>
+
+      <!-- Mensagens de erro -->
       <div *ngIf="conteudo.invalid && conteudo.touched" class="mensagem-erro">
-        <span>⚠️</span>
-        <span>O pensamento é obrigatório</span>
+        <div *ngIf="conteudo.errors?.['required']">
+          <span>⚠️</span>
+          <span>O pensamento é obrigatório</span>
+        </div>
+
+        <div *ngIf="conteudo.errors?.['minlength']">
+          <span>⚠️</span>
+          <span>
+            O pensamento deve ter pelo menos 10 caracteres (você digitou
+            {{ conteudo.errors?.['minlength']?.actualLength }})
+          </span>
+        </div>
       </div>
     </div>
 
@@ -28,11 +52,56 @@
       <input
         type="text"
         class="input"
+        [class.campo-invalido]="
+          (autoria.invalid && autoria.touched) ||
+          (autoria.valid && autoria.touched && !autoriaTemLetra())
+        "
+        [class.campo-valido]="
+          autoria.valid && autoria.touched && autoriaTemLetra()
+        "
         id="autoria"
         name="autoria"
         placeholder="Digite a autoria ou fonte"
         [(ngModel)]="pensamento.autoria"
+        #autoria="ngModel"
+        required
+        minlength="2"
+        maxlength="50"
       />
+
+      <!-- Contador -->
+      <div
+        class="contador-caracteres"
+        [class.proximo-limite]="pensamento.autoria.length > 40"
+        [class.no-limite]="pensamento.autoria.length >= 50"
+      >
+        {{ pensamento.autoria.length }}/50 caracteres
+      </div>
+
+      <!-- Mensagens de erro -->
+      <div *ngIf="autoria.invalid && autoria.touched" class="mensagem-erro">
+        <div *ngIf="autoria.errors?.['required']">
+          <span>⚠️</span>
+          <span>A autoria é obrigatória</span>
+        </div>
+
+        <div *ngIf="autoria.errors?.['minlength']">
+          <span>⚠️</span>
+          <span>
+            A autoria deve ter pelo menos 2 caracteres (você digitou
+            {{ autoria.errors?.['minlength']?.actualLength }})
+          </span>
+        </div>
+      </div>
+
+      <!-- Validação personalizada - só números -->
+      <div
+        *ngIf="autoria.valid && !autoriaTemLetra() && autoria.touched"
+        class="mensagem-erro"
+      >
+        <span>⚠️</span>
+        <span>A autoria deve conter pelo menos uma letra</span>
+      </div>
     </div>
 
     <label for="modelo">Selecione o modelo do card:</label>

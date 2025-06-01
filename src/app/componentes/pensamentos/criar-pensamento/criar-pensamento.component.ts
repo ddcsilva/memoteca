@@ -24,6 +24,19 @@ export class CriarPensamentoComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  autoriaTemLetra(): boolean {
+    const regex = /[a-zA-ZÀ-ÿ]/;
+    return regex.test(this.pensamento.autoria);
+  }
+
+  autoriaEhValida(): boolean {
+    return (
+      this.pensamento.autoria.length >= 2 &&
+      this.pensamento.autoria.length <= 50 &&
+      this.autoriaTemLetra()
+    );
+  }
+
   criarPensamento() {
     this.service.criar(this.pensamento).subscribe(() => {
       this.router.navigate(['/listarPensamento']);
