@@ -27,6 +27,13 @@
   padding: 2rem;
 }
 
+/* Novo estilo para agrupar campos */
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
 .criar-pensamentos form label {
   color: #154580;
   font-weight: bold;
@@ -38,7 +45,7 @@
   height: 40px;
   padding: 1rem 2rem;
   border-radius: 20px;
-  margin: 0.5rem 0 2rem;
+  margin: 0.5rem 0 0.5rem;
 }
 
 .criar-pensamentos form .textarea {
@@ -136,10 +143,12 @@ input[type="radio"]:checked + .custom-radio span {
 .mensagem-erro {
   color: #e74c3c;
   font-size: 0.9rem;
-  margin-top: 5px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   gap: 5px;
+  padding-left: 0.5rem;
 }
 
 .campo-valido {
