@@ -7,11 +7,20 @@
     <input
       type="textarea"
       class="input"
+      [class.campo-invalido]="conteudo.invalid && conteudo.touched"
+      [class.campo-valido]="conteudo.valid && conteudo.touched"
       id="pensamento"
       name="pensamento"
       placeholder="Digite o pensamento"
       [(ngModel)]="pensamento.conteudo"
+      #conteudo="ngModel"
+      required
     />
+
+    <div *ngIf="conteudo.invalid && conteudo.touched" class="mensagem-erro">
+      <span>⚠️</span>
+      <span>O pensamento é obrigatório</span>
+    </div>
     <label for="autoria">Autoria ou fonte</label>
     <input
       type="text"
