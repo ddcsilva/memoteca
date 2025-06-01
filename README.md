@@ -149,7 +149,8 @@ memoteca/
 │   │   │   └── 📄 pensamento.service.ts     # Service para API
 │   │   ├── 📁 models/
 │   │   │   └── 📄 pensamento.ts             # Interface do modelo
-│   │   ├── 📄 app.routes.ts           # Configuração de rotas
+│   │   ├── 📄 app.config.ts           # Configuração da aplicação (Angular 18+)
+│   │   ├── 📄 app.routes.ts           # Definição de rotas (Angular 18+)
 │   │   ├── 📄 app.component.ts        # Componente raiz
 │   │   └── 📄 main.ts                 # Bootstrap da aplicação
 │   └── 📁 assets/
@@ -247,6 +248,13 @@ npm start          # Inicia JSON Server na porta 3000
 - Aplicação totalmente baseada em Standalone Components
 - Não utiliza NgModules tradicionais
 - Bootstrap direto no `main.ts`
+
+### 🏗️ Arquitetura Angular 18+ Moderna
+- **`app.config.ts`** - Configuração centralizada da aplicação com providers
+- **`app.routes.ts`** - Definição de rotas (substitui routing modules)
+- **`main.ts`** - Bootstrap usando `bootstrapApplication()`
+- **Standalone Components** - Componentes independentes sem módulos
+- **Providers funcionais** - `provideRouter()`, `provideHttpClient()`
 
 ### 📱 Design Responsivo
 - Layout adaptável para mobile, tablet e desktop
