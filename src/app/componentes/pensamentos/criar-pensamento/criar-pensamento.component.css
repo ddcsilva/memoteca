@@ -134,6 +134,24 @@ input[type="radio"]:checked + .custom-radio span {
   background: #154580;
 }
 
+/* Destaque para o modelo selecionado */
+.radio-modelo {
+  transition: all 0.3s ease;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+.radio-modelo:has(input[type="radio"]:checked) {
+  background-color: rgba(21, 69, 128, 0.05);
+  border-color: rgba(21, 69, 128, 0.3);
+}
+
+.radio-modelo:has(input[type="radio"]:checked) .modelo {
+  transform: scale(1.01);
+  box-shadow: 8px 8px 0px #154580, 0 0 10px rgba(21, 69, 128, 0.2);
+}
+
 /* Classes para validação */
 .campo-invalido {
   border: 2px solid #e74c3c !important;
