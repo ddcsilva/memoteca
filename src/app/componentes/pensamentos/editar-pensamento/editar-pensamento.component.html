@@ -1,6 +1,6 @@
-<section class="container criar-pensamentos ff-inter">
+<section class="container editar-pensamentos ff-inter">
   <header class="header">
-    <h2>Adicione um <br />pensamento novo:</h2>
+    <h2>Editar pensamento:</h2>
   </header>
   <form>
     <label for="pensamento">Pensamento</label>
@@ -63,7 +63,10 @@
         </label>
         Prévia:
         <div class="modelo modelo2 ff-roboto-mono">
-          <img src="/assets/imagens/modelo2.png" alt="Aspas azul claro" />
+          <img
+            src="/assets/imagens/modelo2.png"
+            alt="Aspas azul claro"
+          />
           <p class="conteudo">{{ pensamento.conteudo }}</p>
           <p class="autoria">
             <b>{{ pensamento.autoria }}</b>
@@ -87,7 +90,10 @@
         </label>
         Prévia:
         <div class="modelo modelo3 ff-roboto-mono">
-          <img src="/assets/imagens/modelo3.png" alt="Aspas verdes" />
+          <img
+            src="/assets/imagens/modelo3.png"
+            alt="Aspas verdes"
+          />
           <p class="conteudo">{{ pensamento.conteudo }}</p>
           <p class="autoria">
             <b>{{ pensamento.autoria }}</b>
@@ -96,7 +102,7 @@
       </div>
     </div>
     <div class="acoes">
-      <button (click)="criarPensamento()" class="botao">Salvar</button>
+      <button (click)="editarPensamento()" class="botao">Salvar</button>
       <button (click)="cancelar()" class="botao">Cancelar</button>
     </div>
   </form>

@@ -1,0 +1,36 @@
+{
+  "name": "memoteca-backend",
+  "version": "1.0.0",
+  "description": "Backend API para aplicação Memoteca usando JSON Server",
+  "main": "db.json",
+  "scripts": {
+    "start": "json-server --watch db.json --port 3000 --host 0.0.0.0",
+    "dev": "json-server --watch db.json --port 3000 --host localhost",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "json-server",
+    "api",
+    "rest",
+    "memoteca",
+    "pensamentos",
+    "backend"
+  ],
+  "author": "Memoteca Team",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "."
+  },
+  "bugs": {
+    "url": "./issues"
+  },
+  "homepage": "."
+}
